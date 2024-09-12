@@ -14,6 +14,7 @@ import SearchScreen from '../Container/App/Search/Search';
 import LocalizationScreen from '../Container/App/Localization/Localization';
 import {createStackNavigator} from '@react-navigation/stack';
 import CustomizeQRCodeScreen from '../Container/App/CustomizeQRCode/CustomizeQRCode';
+import TabViewScreen from '../Container/App/TabView/TabView';
 
 export default function AppStack({navigation}) {
   const Tab = createBottomTabNavigator();
@@ -86,6 +87,7 @@ export default function AppStack({navigation}) {
         name={ScreenName.app.CustomizeQRCodeScreen}
         component={CustomizeQRCodeScreen}
       />
+      <Screen name={ScreenName.app.TabViewScreen} component={TabViewScreen} />
     </Drawer.Navigator>
   );
 }

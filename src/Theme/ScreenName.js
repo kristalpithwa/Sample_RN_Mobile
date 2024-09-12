@@ -14,6 +14,7 @@ const Screen = {
     Search: 'Search',
     LocalizationScreen: 'LocalizationScreen',
     CustomizeQRCodeScreen: 'CustomizeQRCodeScreen',
+    TabViewScreen: 'TabViewScreen',
   },
 };
 

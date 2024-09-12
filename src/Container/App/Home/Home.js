@@ -1,26 +1,8 @@
 import React, {useState} from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  ScrollView,
-  FlatList,
-} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet, FlatList} from 'react-native';
 
-import {
-  Constant,
-  Responsive,
-  ScreenConstant,
-  Colors,
-  Fonts,
-  ScreenName,
-} from '../../../Theme';
-import {
-  setLanguageCode,
-  removeUserDetails,
-} from '../../../Helper/AsyncStorageHandler';
-import {changeLanguage, strings} from '../../../Assets/locales/Localization';
+import {removeUserDetails} from '../../../Helper/AsyncStorageHandler';
+import {Constant, Responsive, Colors, Fonts, ScreenName} from '../../../Theme';
 
 import {useSelector} from 'react-redux';
 
@@ -28,40 +10,44 @@ export default function HomeScreen({navigation, route}) {
   const userDetails = useSelector(
     ({userDetailsStore}) => userDetailsStore.userDetails,
   );
-
-  const [refresh, setRefresh] = useState(false);
-  const [menuList, setMenuList] = useState([
+  const [menuList] = useState([
     {id: 1, name: 'Drawer'},
     {id: 2, name: 'Localization'},
     {id: 3, name: 'Customize QR Code'},
+    {id: 4, name: 'Tab View'},
+    {name: 'Logout'},
   ]);
 
   // onPress Method
+
+  const onPressMenu = (item, index) => {
+    if (index === 0) {
+      onPressDrawer();
+    } else if (index === 1) {
+      onPressLocalization();
+    } else if (index === 2) {
+      onPressCustomizeQR();
+    } else if (index === 3) {
+      onPressTabView();
+    } else {
+      onPressLogout();
+    }
+  };
 
   const onPressDrawer = () => {
     navigation?.openDrawer();
   };
 
   const onPressLocalization = () => {
-    console.log('=== onPressLocalization ===');
     navigation.navigate(ScreenName.app.LocalizationScreen);
   };
 
   const onPressCustomizeQR = () => {
-    console.log('=== onPressCustomize ===');
     navigation.navigate(ScreenName.app.CustomizeQRCodeScreen);
   };
 
-  const onPressSpanish = () => {
-    changeLanguage('sp');
-    setLanguageCode('sp');
-    setRefresh(!refresh);
-  };
-
-  const onPressEnglish = () => {
-    changeLanguage('en');
-    setLanguageCode('en');
-    setRefresh(!refresh);
+  const onPressTabView = () => {
+    navigation.navigate(ScreenName.app.TabViewScreen);
   };
 
   const onPressLogout = () => {
@@ -69,15 +55,7 @@ export default function HomeScreen({navigation, route}) {
     Constant.commonConstant.emitter.emit(Constant.eventListenerKeys.Logout);
   };
 
-  const onPressMenu = item => {
-    if (item.id === 1) {
-      onPressDrawer();
-    } else if (item.id === 2) {
-      onPressLocalization();
-    } else if (item.id === 3) {
-      onPressCustomizeQR();
-    }
-  };
+  // FlatList Method
 
   const renderMenuList = ({item, index}) => {
     return (
@@ -85,7 +63,7 @@ export default function HomeScreen({navigation, route}) {
         onPress={() => onPressMenu(item, index)}
         style={styles.btn}>
         <Text style={styles.homeTxt}>
-          {item.id}.{item.name}
+          {index}.{item.name}
         </Text>
       </TouchableOpacity>
     );
@@ -108,21 +86,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   btn: {
-    marginLeft: Responsive.widthPercentageToDP(5),
-    height: Responsive.heightPercentageToDP(5),
+    backgroundColor: 'red',
+    justifyContent: 'center',
     width: Responsive.widthPercentageToDP(90),
+    height: Responsive.heightPercentageToDP(5),
+    marginLeft: Responsive.widthPercentageToDP(5),
     marginBottom: Responsive.heightPercentageToDP(2),
-    justifyContent: 'center',
-    backgroundColor: 'red',
-  },
-  btn2: {
-    marginLeft: Responsive.widthPercentageToDP(5),
-    height: Responsive.heightPercentageToDP(5),
-    width: Responsive.widthPercentageToDP(90),
-    backgroundColor: 'red',
-    marginTop: Responsive.heightPercentageToDP(2),
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   homeTxt: {
     color: Colors.black,
