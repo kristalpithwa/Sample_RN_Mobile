@@ -2,35 +2,35 @@
   "migIndex": 1,
   "data": [
     {
-      "path": "src/Resources/Fonts/CircularStd-Black.ttf",
+      "path": "src/Assets/Fonts/CircularStd-Black.ttf",
       "sha1": "747d82185122738adaa9297f3e36a187c3f7eb52"
     },
     {
-      "path": "src/Resources/Fonts/CircularStd-BlackItalic.ttf",
+      "path": "src/Assets/Fonts/CircularStd-BlackItalic.ttf",
       "sha1": "21ff806543fb17c26da439f836d38145e191c438"
     },
     {
-      "path": "src/Resources/Fonts/CircularStd-Bold.ttf",
+      "path": "src/Assets/Fonts/CircularStd-Bold.ttf",
       "sha1": "5835fba2ecaa73eccaa97501aaabb5299bc2ceea"
     },
     {
-      "path": "src/Resources/Fonts/CircularStd-BoldItalic.ttf",
+      "path": "src/Assets/Fonts/CircularStd-BoldItalic.ttf",
       "sha1": "12892bb3112e063d8ab8cb8e02707524a44675c5"
     },
     {
-      "path": "src/Resources/Fonts/CircularStd-Book.ttf",
+      "path": "src/Assets/Fonts/CircularStd-Book.ttf",
       "sha1": "53e8b5c172c347b9c327673a1522c566a52e6657"
     },
     {
-      "path": "src/Resources/Fonts/CircularStd-BookItalic.ttf",
+      "path": "src/Assets/Fonts/CircularStd-BookItalic.ttf",
       "sha1": "6259db837e128a238d6aa7f290907a6b28080ecd"
     },
     {
-      "path": "src/Resources/Fonts/CircularStd-Medium.ttf",
+      "path": "src/Assets/Fonts/CircularStd-Medium.ttf",
       "sha1": "41c6ce9d98143129b26c2660e4a7fe8695b64df3"
     },
     {
-      "path": "src/Resources/Fonts/CircularStd-MediumItalic.ttf",
+      "path": "src/Assets/Fonts/CircularStd-MediumItalic.ttf",
       "sha1": "3b9f114198e54080a244c51831b3ac9e63a7838c"
     }
   ]
