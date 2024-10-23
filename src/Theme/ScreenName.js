@@ -15,6 +15,7 @@ const Screen = {
     LocalizationScreen: 'LocalizationScreen',
     CustomizeQRCodeScreen: 'CustomizeQRCodeScreen',
     TabViewScreen: 'TabViewScreen',
+    AnimationScreen: 'AnimationScreen',
   },
 };
 

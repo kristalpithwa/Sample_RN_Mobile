@@ -1,20 +1,18 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {View, Text, TouchableOpacity, StyleSheet, FlatList} from 'react-native';
 
-import {removeUserDetails} from '../../../Helper/AsyncStorageHandler';
-import {Constant, Responsive, Colors, Fonts, ScreenName} from '../../../Theme';
-
-import {useSelector} from 'react-redux';
+import {AuthContext} from '../../../Context/Context';
+import {Responsive, Colors, Fonts, ScreenName} from '../../../Theme';
 
 export default function HomeScreen({navigation, route}) {
-  const userDetails = useSelector(
-    ({userDetailsStore}) => userDetailsStore.userDetails,
-  );
+  const {currentLanguage, logout} = useContext(AuthContext);
+
   const [menuList] = useState([
-    {id: 1, name: 'Drawer'},
-    {id: 2, name: 'Localization'},
-    {id: 3, name: 'Customize QR Code'},
-    {id: 4, name: 'Tab View'},
+    {name: 'Drawer'},
+    {name: `Localization ${currentLanguage}`},
+    {name: 'Customize QR Code'},
+    {name: 'Tab View'},
+    {name: 'Animation'},
     {name: 'Logout'},
   ]);
 
@@ -29,6 +27,8 @@ export default function HomeScreen({navigation, route}) {
       onPressCustomizeQR();
     } else if (index === 3) {
       onPressTabView();
+    } else if (index === 4) {
+      onPressAnimation();
     } else {
       onPressLogout();
     }
@@ -50,9 +50,12 @@ export default function HomeScreen({navigation, route}) {
     navigation.navigate(ScreenName.app.TabViewScreen);
   };
 
+  const onPressAnimation = () => {
+    navigation.navigate(ScreenName.app.AnimationScreen);
+  };
+
   const onPressLogout = () => {
-    removeUserDetails();
-    Constant.commonConstant.emitter.emit(Constant.eventListenerKeys.Logout);
+    logout();
   };
 
   // FlatList Method

@@ -20,6 +20,11 @@ export const changeLanguage = languageKey => {
   Strings?.setLanguage(languageKey);
 };
 
+export const getLanguage = () => {
+  const getLanguage = Strings?.getLanguage();
+  return getLanguage;
+};
+
 // export async function changeLanguage(language) {
 //   console.log('changeLanguage =>', language);
 

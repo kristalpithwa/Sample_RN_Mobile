@@ -1,34 +1,37 @@
-import React, {useState} from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import React, {useContext, useState} from 'react';
+import {View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native';
 
-import {setLanguageCode} from '../../../Helper/AsyncStorageHandler';
 import {Fonts, Colors, Responsive, ScreenConstant} from '../../../Theme';
 import {changeLanguage, strings} from '../../../Assets/locales/Localization';
 
-import {useSelector} from 'react-redux';
+import BackButton from '../../../Components/BackButton/BackButton';
+import {AuthContext} from '../../../Context/Context';
+import {setLanguageCode} from '../../../Helper/AsyncStorageHandler';
 
 export default function LocalizationScreen({navigation, route}) {
-  const userDetails = useSelector(
-    ({userDetailsStore}) => userDetailsStore.userDetails,
-  );
   const [refresh, setRefresh] = useState(false);
+  const {getLanguage} = useContext(AuthContext);
 
   // onPress Method
 
-  const onPressSpanish = () => {
+  const onPressSpanish = async () => {
     changeLanguage('sp');
     setLanguageCode('sp');
+    // getLanguage();
     setRefresh(!refresh);
   };
 
   const onPressEnglish = () => {
     changeLanguage('en');
     setLanguageCode('en');
+    // getLanguage();
     setRefresh(!refresh);
   };
 
   return (
     <View style={styles.container}>
+      <BackButton onPress={() => navigation.goBack()} />
+
       <TouchableOpacity
         onPress={() => onPressSpanish()}
         style={{
@@ -36,7 +39,7 @@ export default function LocalizationScreen({navigation, route}) {
           height: Responsive.heightPercentageToDP(5),
           width: Responsive.widthPercentageToDP(90),
           backgroundColor: 'red',
-          marginTop: Responsive.heightPercentageToDP(10),
+          marginTop: Responsive.heightPercentageToDP(3),
           alignItems: 'center',
           justifyContent: 'center',
         }}>
@@ -68,7 +71,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-
   btn2: {
     marginLeft: Responsive.widthPercentageToDP(5),
     height: Responsive.heightPercentageToDP(5),
