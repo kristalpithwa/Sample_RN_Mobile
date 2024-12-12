@@ -13,6 +13,9 @@ export default function HomeScreen({navigation, route}) {
     {name: 'Customize QR Code'},
     {name: 'Tab View'},
     {name: 'Animation'},
+    {name: 'Unity Ads'},
+    {name: 'Unity Interstitial Ad'},
+    {name: 'Unity Banner Ad'},
     {name: 'Logout'},
   ]);
 
@@ -29,6 +32,12 @@ export default function HomeScreen({navigation, route}) {
       onPressTabView();
     } else if (index === 4) {
       onPressAnimation();
+    } else if (index === 5) {
+      onPressUnityAds();
+    } else if (index === 6) {
+      onPressUnityInterstitialAd();
+    } else if (index === 7) {
+      onPressUnityBannerAd();
     } else {
       onPressLogout();
     }
@@ -52,6 +61,18 @@ export default function HomeScreen({navigation, route}) {
 
   const onPressAnimation = () => {
     navigation.navigate(ScreenName.app.AnimationScreen);
+  };
+
+  const onPressUnityAds = () => {
+    navigation.navigate(ScreenName.app.UnityAdsScreen);
+  };
+
+  const onPressUnityInterstitialAd = () => {
+    navigation.navigate(ScreenName.app.UnityInterstitialAdScreen);
+  };
+
+  const onPressUnityBannerAd = () => {
+    navigation.navigate(ScreenName.app.UnityBannerAds);
   };
 
   const onPressLogout = () => {

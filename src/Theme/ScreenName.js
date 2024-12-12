@@ -16,6 +16,9 @@ const Screen = {
     CustomizeQRCodeScreen: 'CustomizeQRCodeScreen',
     TabViewScreen: 'TabViewScreen',
     AnimationScreen: 'AnimationScreen',
+    UnityAdsScreen: 'UnityAdsScreen',
+    UnityInterstitialAdScreen: 'UnityInterstitialAdScreen',
+    UnityBannerAds: 'UnityBannerAds',
   },
 };
 

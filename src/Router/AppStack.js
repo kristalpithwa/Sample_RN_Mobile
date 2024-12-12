@@ -15,6 +15,10 @@ import LocalizationScreen from '../Container/App/Localization/Localization';
 import {createStackNavigator} from '@react-navigation/stack';
 import CustomizeQRCodeScreen from '../Container/App/CustomizeQRCode/CustomizeQRCode';
 import TabViewScreen from '../Container/App/TabView/TabView';
+import UnityAdsScreen from '../Container/App/UnityAds/UnityAdsScreen';
+import AnimationScreen from '../Container/App/Animation/TabView';
+import UnityInterstitialAdScreen from '../Container/App/UnityIntertstitialAd/UnityInterstitialAdScreen';
+import UnityBannerAds from '../Container/App/UnityBannerAds/UnityBannerAds';
 
 export default function AppStack({navigation}) {
   const Tab = createBottomTabNavigator();
@@ -88,6 +92,16 @@ export default function AppStack({navigation}) {
         component={CustomizeQRCodeScreen}
       />
       <Screen name={ScreenName.app.TabViewScreen} component={TabViewScreen} />
+      <Screen
+        component={AnimationScreen}
+        name={ScreenName.app.AnimationScreen}
+      />
+      <Screen component={UnityAdsScreen} name={ScreenName.app.UnityAdsScreen} />
+      <Screen
+        component={UnityInterstitialAdScreen}
+        name={ScreenName.app.UnityInterstitialAdScreen}
+      />
+      <Screen component={UnityBannerAds} name={ScreenName.app.UnityBannerAds} />
     </Drawer.Navigator>
   );
 }
