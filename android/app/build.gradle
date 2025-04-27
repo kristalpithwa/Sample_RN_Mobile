@@ -110,12 +110,16 @@ dependencies {
     implementation("com.facebook.react:react-android")
     implementation("com.facebook.react:flipper-integration")
 
+//    implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1'
+//    implementation 'com.google.android.gms:play-services-basement:18.3.0'
+//    implementation 'com.google.android.gms:play-services-appset:16.0.2'
+
     implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1'
     implementation 'com.google.android.gms:play-services-basement:18.3.0'
     implementation 'com.google.android.gms:play-services-appset:16.0.2'
 
     // IronSource Mediation SDK
-    implementation 'com.ironsource:adqualitysdk:7.22.2'
+    implementation 'com.unity3d.ads-mediation:adquality-sdk:7.24.1'
 
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")

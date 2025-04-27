@@ -1,6 +1,6 @@
 // import APIConfig from '../Config/ApiConfig/index';
 import {showAlert} from '../Functions/Alerts';
-var {EventEmitter} = require('fbemitter');
+// var {EventEmitter} = require('fbemitter');
 // const axiosDefaults = require('axios/lib/defaults');
 
 export const setUserData = UserData => {
@@ -14,7 +14,7 @@ export const setUserData = UserData => {
 };
 
 export const commonConstant = {
-  emitter: new EventEmitter(),
+  // emitter: new EventEmitter(),
 };
 
 export const eventListenerKeys = {

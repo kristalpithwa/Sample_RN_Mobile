@@ -1,10 +1,10 @@
 import {Alert} from 'react-native';
 import {name as appName} from '../../app.json';
-import Toast from 'react-native-simple-toast';
+// import Toast from 'react-native-simple-toast';
 
 export function showToast(message) {
   // setTimeout(() => {
-  Toast.show(message, Toast.SHORT);
+  // Toast.show(message, Toast.SHORT);
   // }, 500);
 }
 
